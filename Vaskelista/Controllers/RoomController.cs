@@ -46,7 +46,7 @@ namespace Vaskelista.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="RoomId,Name,Description")] Room room)
+        public ActionResult Create([Bind(Include="RoomId,Name")] Room room)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace Vaskelista.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="RoomId,Name,Description")] Room room)
+        public ActionResult Edit([Bind(Include="RoomId,Name")] Room room)
         {
             if (ModelState.IsValid)
             {

@@ -13,8 +13,5 @@ namespace Vaskelista.Models
         [Required]
         [Display(Name = "Navn")]
         public string Name { get; set; }
-
-        [Display(Name = "Beskrivelse")]
-        public string Description { get; set; }
     }
 }
