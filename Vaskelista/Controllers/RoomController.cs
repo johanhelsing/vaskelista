@@ -10,12 +10,12 @@ using Vaskelista.Models;
 
 namespace Vaskelista.Controllers
 {
-    public class RoomController : Controller
+    public class RoomController : BaseController
     {
         private VaskelistaContext db = new VaskelistaContext();
 
         // GET: /Room/
-        public ActionResult Index(string householdToken)
+        public ActionResult Index()
         {
             return View(db.Rooms.ToList());
         }
