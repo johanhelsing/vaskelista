@@ -8,9 +8,8 @@ namespace Vaskelista.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(string scheduleId)
+        public ActionResult Index()
         {
-            ViewBag.Message = scheduleId;
             return View();
         }
 

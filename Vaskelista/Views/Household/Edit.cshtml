@@ -1,4 +1,4 @@
-﻿@model Vaskelista.Models.Schedule
+﻿@model Vaskelista.Models.Household
 
 @{
     ViewBag.Title = "Edit";
@@ -12,16 +12,16 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Schedule</h4>
+        <h4>Household</h4>
         <hr />
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.ScheduleId)
+        @Html.HiddenFor(model => model.HouseholdId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Token, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
+                @Html.EditorFor(model => model.Token)
+                @Html.ValidationMessageFor(model => model.Token)
             </div>
         </div>
 

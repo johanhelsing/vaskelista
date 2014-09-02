@@ -7,11 +7,11 @@ using Vaskelista.Models;
 
 namespace Vaskelista.Services
 {
-    public class ScheduleService 
+    public class HouseholdService 
     {
         private VaskelistaContext db;
         
-        public ScheduleService(VaskelistaContext db)
+        public HouseholdService(VaskelistaContext db)
         {
             this.db = db;
         }
@@ -21,8 +21,8 @@ namespace Vaskelista.Services
             while(randomUrls.Count < count)
             {
                 var url = RandomUrl.GetUrl();
-                var schedule = db.Schedules.FirstOrDefault(s => s.Name.Equals(url));
-                if (schedule == null) {
+                var household = db.Households.FirstOrDefault(s => s.Token.Equals(url));
+                if (household == null) {
                     randomUrls.Add(url);
                 }
             }

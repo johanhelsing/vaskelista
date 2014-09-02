@@ -15,7 +15,7 @@ namespace Vaskelista.Controllers
         private VaskelistaContext db = new VaskelistaContext();
 
         // GET: /Room/
-        public ActionResult Index(string scheduleName)
+        public ActionResult Index(string householdToken)
         {
             return View(db.Rooms.ToList());
         }

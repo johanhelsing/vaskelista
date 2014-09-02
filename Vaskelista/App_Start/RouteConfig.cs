@@ -16,18 +16,18 @@ namespace Vaskelista
             routes.MapRoute(
                 name: "Root",
                 url: "",
-                defaults: new { controller = "Schedule", action = "Create"}
+                defaults: new { controller = "Household", action = "Create"}
             );
 
             routes.MapRoute(
-                name: "Schedule",
-                url: "Schedule/{action}/{id}",
-                defaults: new { controller = "Schedule", id = UrlParameter.Optional }
+                name: "Household",
+                url: "Household/{action}/{id}",
+                defaults: new { controller = "Household", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "CleaningSchedule",
-                url: "{scheduleName}/{controller}/{action}/{id}",
+                name: "HouseholdWithToken",
+                url: "{houseHoldToken}/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

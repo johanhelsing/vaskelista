@@ -1,4 +1,4 @@
-﻿@model Vaskelista.Models.Schedule
+﻿@model Vaskelista.Models.Household
 
 @{
     ViewBag.Title = "Create";
@@ -7,22 +7,22 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm("Create", "Schedule", FormMethod.Post)) 
+@using (Html.BeginForm("Create", "Household", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Schedule</h4>
+        <h4>Household</h4>
         <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Token, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <ul>
                     @foreach (string randomUrl in ViewBag.RandomUrls)
                     {
-                        <li><label>@Html.RadioButtonFor(model => model.Name, randomUrl)@randomUrl</label></li>
+                        <li><label>@Html.RadioButtonFor(model => model.Token, randomUrl)@randomUrl</label></li>
                     }
                 </ul>
             </div>

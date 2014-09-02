@@ -6,11 +6,11 @@ using System.Web;
 
 namespace Vaskelista.Models
 {
-    public class Schedule
+    public class Household
     {
-        public Int32 ScheduleId { get; set; }
+        public Int32 HouseholdId { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string Token { get; set; }
     }
 }
