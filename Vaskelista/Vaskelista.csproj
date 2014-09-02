@@ -193,7 +193,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RandomUrl.cs" />
-    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Household.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Room.cs" />
