@@ -7,12 +7,20 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Vaskelista.Models;
+using Vaskelista.Services;
 
 namespace Vaskelista.Controllers
 {
     public class ScheduleController : Controller
     {
-        private VaskelistaContext db = new VaskelistaContext();
+        private VaskelistaContext db;
+        private ScheduleService service;
+
+        public ScheduleController()
+        {
+            db = new VaskelistaContext();
+            service = new ScheduleService(db);
+        }
 
         // GET: /Schedule/
         public ActionResult Index()
@@ -38,6 +46,7 @@ namespace Vaskelista.Controllers
         // GET: /Schedule/Create
         public ActionResult Create()
         {
+            ViewBag.RandomUrls = service.GetUniqueUrls(10);
             return View();
         }
 

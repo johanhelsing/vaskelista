@@ -19,8 +19,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
+                <ul>
+                    @foreach (string randomUrl in ViewBag.RandomUrls)
+                    {
+                        <li><label>@Html.RadioButtonFor(model => model.Name, randomUrl)@randomUrl</label></li>
+                    }
+                </ul>
             </div>
         </div>
 
