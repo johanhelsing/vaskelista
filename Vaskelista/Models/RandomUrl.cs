@@ -16,7 +16,19 @@ namespace Vaskelista.Models
             "fryktelig",
             "utrolig",
             "gul",
-            "stor"
+            "stor",
+            "liten",
+            "farlig",
+            "dum",
+            "gretten",
+            "glad",
+            "morsom",
+            "brun",
+            "svart",
+            "hvit",
+            "tynn",
+            "lang",
+            "kort"
         };
 
         private static string[] animals = new string[]{
@@ -27,7 +39,19 @@ namespace Vaskelista.Models
             "ulv",
             "gaupe",
             "jerv",
-            "hubro"
+            "hubro",
+            "rev",
+            "rype",
+            "huggorm",
+            "due",
+            "falk",
+            "rotte",
+            "mus",
+            "mink",
+            "oter",
+            "bever",
+            "elg",
+            "rein"
         };
 
         private static string GetRandomAdjective(){
