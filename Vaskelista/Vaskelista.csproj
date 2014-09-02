@@ -174,6 +174,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,7 +182,12 @@
     <Compile Include="Migrations\201409011357102_RemoveRoomDescription.Designer.cs">
       <DependentUpon>201409011357102_RemoveRoomDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409020706088_CreateSchedule.cs" />
+    <Compile Include="Migrations\201409020706088_CreateSchedule.Designer.cs">
+      <DependentUpon>201409020706088_CreateSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Room.cs" />
@@ -240,6 +246,11 @@
     <Content Include="Views\Room\Details.cshtml" />
     <Content Include="Views\Room\Edit.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Schedule\Create.cshtml" />
+    <Content Include="Views\Schedule\Delete.cshtml" />
+    <Content Include="Views\Schedule\Details.cshtml" />
+    <Content Include="Views\Schedule\Edit.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -254,6 +265,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201409011357102_RemoveRoomDescription.resx">
       <DependentUpon>201409011357102_RemoveRoomDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409020706088_CreateSchedule.resx">
+      <DependentUpon>201409020706088_CreateSchedule.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

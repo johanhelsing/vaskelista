@@ -14,8 +14,20 @@ namespace Vaskelista
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
+                name: "Root",
+                url: "",
+                defaults: new { controller = "Schedule", action = "Create"}
+            );
+
+            routes.MapRoute(
+                name: "Schedule",
+                url: "Schedule/{action}/{id}",
+                defaults: new { controller = "Schedule", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "CleaningSchedule",
+                url: "{scheduleId}/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

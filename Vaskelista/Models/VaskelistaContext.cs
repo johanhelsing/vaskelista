@@ -9,5 +9,6 @@ namespace Vaskelista.Models
     public class VaskelistaContext : DbContext
     {
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
     }
 }
