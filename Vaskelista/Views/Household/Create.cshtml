@@ -8,30 +8,28 @@
 
 <p>Her kan du velge hva vaskelisten din skal hete:</p>
 
-@using (Html.BeginForm("Create", "Household", FormMethod.Post)) 
-{
-    @Html.AntiForgeryToken()
+
     
     <div class="form-horizontal">
-        @Html.ValidationSummary(true)
-
         <div class="form-group">
-            <label class="control-label col-md-2">@Request.Url.ToString()</label>
-            <div class="col-md-10">
+            <div class="col-md-12"><label>@Request.Url.ToString()</label></div>
+            <div class="col-md-12">
                 <ul class="form-option-list">
-                    @foreach (string randomUrl in ViewBag.RandomUrls)
-                    {
-                        <li><label>@Html.RadioButtonFor(model => model.Token, randomUrl)@randomUrl</label></li>
-                    }
+                        @foreach (string randomUrl in ViewBag.RandomUrls)
+                        {
+                            <li>
+                                @using (Html.BeginForm("Create", "Household", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(model => model.Token, new { Value = randomUrl })
+                                    <input type="submit" value="@randomUrl" class="btn btn-default" />
+                                }
+                            </li>
+                        }
                 </ul>
-            </div>
-        
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Lag vaskeliste" class="btn btn-default" />
             </div>
         </div>
     </div>
-}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
