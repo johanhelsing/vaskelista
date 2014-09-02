@@ -13,5 +13,7 @@ namespace Vaskelista.Models
         [Required]
         [Display(Name = "Navn")]
         public string Name { get; set; }
+
+        public virtual Household HouseHold { get; set; }
     }
 }

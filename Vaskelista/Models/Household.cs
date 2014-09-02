@@ -13,5 +13,7 @@ namespace Vaskelista.Models
         [Required]
         [Display(Name = "Kodeord")]
         public string Token { get; set; }
+
+        public virtual ICollection<Room> rooms { get; set; }
     }
 }

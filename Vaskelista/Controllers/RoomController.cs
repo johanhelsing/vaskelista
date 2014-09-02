@@ -17,7 +17,7 @@ namespace Vaskelista.Controllers
         // GET: /Room/
         public ActionResult Index()
         {
-            return View(db.Rooms.ToList());
+            return View(db.Rooms.Where(s => s.HouseHold.Token == HouseholdToken).ToList());
         }
 
         // GET: /Room/Details/5
@@ -48,6 +48,7 @@ namespace Vaskelista.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="RoomId,Name")] Room room)
         {
+            room.HouseHold = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
             if (ModelState.IsValid)
             {
                 db.Rooms.Add(room);
