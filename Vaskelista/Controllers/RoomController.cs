@@ -15,7 +15,7 @@ namespace Vaskelista.Controllers
         private VaskelistaContext db = new VaskelistaContext();
 
         // GET: /Room/
-        public ActionResult Index()
+        public ActionResult Index(string scheduleName)
         {
             return View(db.Rooms.ToList());
         }

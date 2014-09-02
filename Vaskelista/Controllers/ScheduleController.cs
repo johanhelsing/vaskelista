@@ -61,7 +61,7 @@ namespace Vaskelista.Controllers
             {
                 db.Schedules.Add(schedule);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Room", new { scheduleName = schedule.Name});
             }
 
             return View(schedule);

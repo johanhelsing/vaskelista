@@ -27,7 +27,7 @@ namespace Vaskelista
 
             routes.MapRoute(
                 name: "CleaningSchedule",
-                url: "{scheduleId}/{controller}/{action}/{id}",
+                url: "{scheduleName}/{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
