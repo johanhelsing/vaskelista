@@ -4,41 +4,34 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Velkommen til vaskelista</h2>
 
+<p>Her kan du velge hva vaskelisten din skal hete:</p>
 
 @using (Html.BeginForm("Create", "Household", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Household</h4>
-        <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Token, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">@Request.Url.ToString()</label>
             <div class="col-md-10">
-                <ul>
+                <ul class="form-option-list">
                     @foreach (string randomUrl in ViewBag.RandomUrls)
                     {
                         <li><label>@Html.RadioButtonFor(model => model.Token, randomUrl)@randomUrl</label></li>
                     }
                 </ul>
             </div>
-        </div>
-
-        <div class="form-group">
+        
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Lag vaskeliste" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

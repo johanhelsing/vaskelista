@@ -40,3 +40,11 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+
+/* Remove bullets from option lists */
+.form-option-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0.5em;
+}

@@ -11,6 +11,7 @@ namespace Vaskelista.Models
         public Int32 HouseholdId { get; set; }
 
         [Required]
+        [Display(Name = "Kodeord")]
         public string Token { get; set; }
     }
 }
