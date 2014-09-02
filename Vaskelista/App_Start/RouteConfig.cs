@@ -28,7 +28,7 @@ namespace Vaskelista
             routes.MapRoute(
                 name: "HouseholdWithToken",
                 url: "{householdToken}/{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Room", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
