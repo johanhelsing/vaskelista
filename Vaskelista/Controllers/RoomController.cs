@@ -49,6 +49,8 @@ namespace Vaskelista.Controllers
         public ActionResult Create([Bind(Include="RoomId,Name")] Room room)
         {
             room.HouseHold = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
+            ModelState.Clear();
+            TryValidateModel(room);
             if (ModelState.IsValid)
             {
                 db.Rooms.Add(room);
