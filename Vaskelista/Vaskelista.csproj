@@ -202,7 +202,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\StringExtensions.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Models\VaskelistaContext.cs" />
+    <Compile Include="Models\Weekday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HouseholdService.cs" />
     <Compile Include="Startup.cs" />
