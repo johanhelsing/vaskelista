@@ -10,5 +10,6 @@ namespace Vaskelista.Models
     {
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Household> Households { get; set; }
+        public DbSet<Task> Tasks { get; set; }
     }
 }
