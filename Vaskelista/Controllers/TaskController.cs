@@ -17,7 +17,7 @@ namespace Vaskelista.Controllers
         // GET: /Task/
         public ActionResult Index()
         {
-            return View(db.Tasks.ToList());
+            return View(db.Tasks.Where(s=>s.Household.Token == HouseholdToken).ToList());
         }
 
         // GET: /Task/Details/5
