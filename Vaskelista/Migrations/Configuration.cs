@@ -9,7 +9,7 @@ namespace Vaskelista.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Vaskelista.Models.VaskelistaContext";
         }
 
