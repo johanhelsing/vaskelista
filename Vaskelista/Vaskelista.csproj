@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201409030800449_CreateTasks.Designer.cs">
       <DependentUpon>201409030800449_CreateTasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409030823261_TaskHouseholdRelation.cs" />
+    <Compile Include="Migrations\201409030823261_TaskHouseholdRelation.Designer.cs">
+      <DependentUpon>201409030823261_TaskHouseholdRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RandomUrl.cs" />
     <Compile Include="Models\Household.cs" />
@@ -302,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409030800449_CreateTasks.resx">
       <DependentUpon>201409030800449_CreateTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409030823261_TaskHouseholdRelation.resx">
+      <DependentUpon>201409030823261_TaskHouseholdRelation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

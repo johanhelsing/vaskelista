@@ -10,7 +10,7 @@ using Vaskelista.Models;
 
 namespace Vaskelista.Controllers
 {
-    public class TaskController : Controller
+    public class TaskController : BaseController
     {
         private VaskelistaContext db = new VaskelistaContext();
 
@@ -48,6 +48,9 @@ namespace Vaskelista.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="TaskId,Name,Description,Start,Days")] Task task)
         {
+            task.Household = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
+            ModelState.Clear();
+            TryUpdateModel(task);
             if (ModelState.IsValid)
             {
                 db.Tasks.Add(task);

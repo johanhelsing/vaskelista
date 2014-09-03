@@ -15,5 +15,6 @@ namespace Vaskelista.Models
         public string Token { get; set; }
 
         public virtual ICollection<Room> rooms { get; set; }
+        public virtual ICollection<Task> Tasks { get; set; }
     }
 }

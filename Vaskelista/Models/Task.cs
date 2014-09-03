@@ -11,6 +11,9 @@ namespace Vaskelista.Models
         public Int32 TaskId { get; set; }
 
         [Required]
+        public virtual Household Household { get; set; }
+
+        [Required]
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -19,5 +22,6 @@ namespace Vaskelista.Models
 
         [Required]
         public Weekday Days { get; set; }
+
     }
 }
