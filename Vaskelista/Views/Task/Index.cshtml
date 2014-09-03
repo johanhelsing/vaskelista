@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<Vaskelista.Models.Task>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Oppgaveoversikt";
 }
 
-<h2>Index</h2>
+<h2>Planlagte oppgaver</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Opprett ny oppgave", "Create")
 </p>
 <table class="table">
     <tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Days)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TaskId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TaskId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TaskId })
+            @Html.ActionLink("Endre", "Edit", new { id=item.TaskId }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.TaskId }) |
+            @Html.ActionLink("Slett", "Delete", new { id=item.TaskId })
         </td>
     </tr>
 }
