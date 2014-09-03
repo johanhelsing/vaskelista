@@ -14,13 +14,16 @@ namespace Vaskelista.Models
         public virtual Household Household { get; set; }
 
         [Required]
+        [Display(Name = "Oppgavenavn")]
         public string Name { get; set; }
 
+        [Display(Name = "Beskrivelse")]
         public string Description { get; set; }
 
         public DateTime Start { get; set; }
 
         [Required]
+        [Display(Name = "Dager")]
         public Weekday Days { get; set; }
 
     }

@@ -1,19 +1,16 @@
 ﻿@model Vaskelista.Models.Task
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Ny oppgave";
 }
 
-<h2>Create</h2>
-
+<h2>Planlegg ny oppgave</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Task</h4>
-        <hr />
         @Html.ValidationSummary(true)
 
         <div class="form-group">
