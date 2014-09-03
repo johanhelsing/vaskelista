@@ -32,6 +32,10 @@ namespace Vaskelista.Controllers
             {
                 return HttpNotFound();
             }
+            if (task.Household.Token != HouseholdToken)
+            {
+                return HttpNotFound();
+            }
             return View(task);
         }
 
@@ -70,6 +74,10 @@ namespace Vaskelista.Controllers
             }
             Task task = db.Tasks.Find(id);
             if (task == null)
+            {
+                return HttpNotFound();
+            }
+            if (task.Household.Token != HouseholdToken)
             {
                 return HttpNotFound();
             }
