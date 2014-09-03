@@ -7,7 +7,7 @@ namespace Vaskelista.Migrations
     {
         public override void Up()
         {
-            
+            Sql("TRUNCATE TABLE dbo.Rooms");
             AddColumn("dbo.Rooms", "HouseHold_HouseholdId", c => c.Int(nullable: false));
             CreateIndex("dbo.Rooms", "HouseHold_HouseholdId");
             AddForeignKey("dbo.Rooms", "HouseHold_HouseholdId", "dbo.Households", "HouseholdId", cascadeDelete: true);
