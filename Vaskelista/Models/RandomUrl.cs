@@ -28,12 +28,14 @@ namespace Vaskelista.Models
             "hvit",
             "tynn",
             "lang",
-            "kort"
+            "kort",
+            "ynkelig",
+            "sterk",
+            "sint",
+            "skummel"
         };
 
         private static string[] animals = new string[]{
-            "giraff",
-            "tiger",
             "katt",
             "hund",
             "ulv",
@@ -51,7 +53,19 @@ namespace Vaskelista.Models
             "oter",
             "bever",
             "elg",
-            "rein"
+            "rein",
+            "ekorn",
+            "spissmus",
+            "ugle",
+            "grevling",
+            "hakkespett",
+            "bokfink",
+            "pinnsvin",
+            "spurv",
+            "firfisle",
+            "frosk",
+            "padde",
+            "rumpetroll"
         };
 
         private static string GetRandomAdjective(){
