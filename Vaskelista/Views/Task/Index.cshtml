@@ -23,6 +23,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Days)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Room)
+        </th>
         <th></th>
     </tr>
 
@@ -39,6 +42,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Days)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Room.Name)
         </td>
         <td>
             @Html.ActionLink("Endre", "Edit", new { id=item.TaskId }) |
