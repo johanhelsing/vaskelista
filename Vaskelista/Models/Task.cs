@@ -26,5 +26,7 @@ namespace Vaskelista.Models
         [Display(Name = "Dager")]
         public Weekday Days { get; set; }
 
+        public virtual Room Room { get; set; }
+        public Int32? RoomId { get; set; }
     }
 }

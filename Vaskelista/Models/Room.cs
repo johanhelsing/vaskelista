@@ -14,7 +14,9 @@ namespace Vaskelista.Models
         [Display(Name = "Navn")]
         public string Name { get; set; }
 
-        [Required]
         public virtual Household Household { get; set; }
+        public Int32 HouseholdId { get; set; }
+
+        public virtual ICollection<Task> Tasks { get; set; }
     }
 }

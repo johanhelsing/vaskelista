@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201409050836220_FixTypoRoomHousehold.Designer.cs">
       <DependentUpon>201409050836220_FixTypoRoomHousehold.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409051023556_TaskRoomRelation.cs" />
+    <Compile Include="Migrations\201409051023556_TaskRoomRelation.Designer.cs">
+      <DependentUpon>201409051023556_TaskRoomRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RandomUrl.cs" />
     <Compile Include="Models\Household.cs" />
@@ -324,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409050836220_FixTypoRoomHousehold.resx">
       <DependentUpon>201409050836220_FixTypoRoomHousehold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409051023556_TaskRoomRelation.resx">
+      <DependentUpon>201409051023556_TaskRoomRelation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
