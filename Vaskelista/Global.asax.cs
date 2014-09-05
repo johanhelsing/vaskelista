@@ -15,10 +15,6 @@ namespace Vaskelista
     {
         protected void Application_Start()
         {
-
-            // Initializes and seeds the database.
-            Database.SetInitializer(new DropCreateDatabaseAlways<VaskelistaContext>());
-
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
