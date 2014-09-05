@@ -15,6 +15,6 @@ namespace Vaskelista.Models
         public string Name { get; set; }
 
         [Required]
-        public virtual Household HouseHold { get; set; }
+        public virtual Household Household { get; set; }
     }
 }
