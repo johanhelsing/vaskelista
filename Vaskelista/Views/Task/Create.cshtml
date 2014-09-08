@@ -76,12 +76,17 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval",
+                    "~/bundles/jqueryglobalize",
                     "~/bundles/bootstrapdatepicker")
 
     <script type="text/javascript">
         $(function () { // will trigger when the document is ready
             $('.datepicker').datepicker({language:"no"}); //Initialise any date pickers
         });
+
+        $.validator.methods.date = function (value, element) {
+            return this.optional(element) || Globalize.parseDate(value, "dd.MM.yyyy", "en");
+        }
     </script>
 }
 
