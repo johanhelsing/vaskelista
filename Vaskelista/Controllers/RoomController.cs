@@ -28,7 +28,7 @@ namespace Vaskelista.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Room room = db.Rooms.Find(id);
-            if (room == null)
+            if (room == null || room.Household.Token != HouseholdToken)
             {
                 return HttpNotFound();
             }
@@ -106,7 +106,7 @@ namespace Vaskelista.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Room room = db.Rooms.Find(id);
-            if (room == null)
+            if (room == null || room.Household.Token != HouseholdToken)
             {
                 return HttpNotFound();
             }
@@ -119,6 +119,11 @@ namespace Vaskelista.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Room room = db.Rooms.Find(id);
+            if (room == null || room.Household.Token != HouseholdToken)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            db.Tasks.RemoveRange(db.Tasks.Where(t => t.RoomId == id));
             db.Rooms.Remove(room);
             db.SaveChanges();
             return RedirectToAction("Index");
