@@ -29,12 +29,13 @@ namespace Vaskelista
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/bootstrap-datepicker.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap-datepicker.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrapdatepicker").Include(
                         "~/Scripts/bootstrap-datepicker.js",
                         "~/Scripts/locales/bootstrap-datepicker.no.js"));
+
+            bundles.Add(new LessBundle("~/Content/less").Include("~/Content/*.less"));
 
         }
     }
