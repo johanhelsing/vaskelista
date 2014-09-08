@@ -42,6 +42,7 @@ namespace Vaskelista.Controllers
         // GET: /Task/Create
         public ActionResult Create()
         {
+            ViewBag.RoomList = new SelectList(db.Rooms.Where(r => r.Household.Token == HouseholdToken).ToList(), "RoomId", "Name");
             return View();
         }
 
