@@ -16,7 +16,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description)
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.Description)
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Start, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Start, new { Value = DateTime.Now.ToString() })
+                @Html.TextBoxFor(model => model.Start, new { Value = DateTime.Now.ToString("dd.MM.yyyy"), @class = "form-control datepicker", data_date_format = "dd.mm.yyyy" })
                 @Html.ValidationMessageFor(model => model.Start)
             </div>
         </div>
@@ -48,7 +48,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Days, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Days)
+                @Html.TextBoxFor(model => model.Days, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Days)
             </div>
         </div>
@@ -65,6 +65,16 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+
+
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval",
+                    "~/bundles/bootstrapdatepicker")
+
+    <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
+            $('.datepicker').datepicker({language:"no"}); //Initialise any date pickers
+        });
+    </script>
 }
+
