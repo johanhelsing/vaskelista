@@ -48,7 +48,7 @@
         <div class="form-group">
             @Html.Label("Dager", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <ul>
+                <ul class="form-checkbox-list form-weekday-list">
                     <li>@Html.CheckBoxFor(model => model.Monday) @Html.LabelFor(t => t.Monday)</li>
                     <li>@Html.CheckBoxFor(model => model.Tuesday) @Html.LabelFor(t => t.Tuesday)</li>
                     <li>@Html.CheckBoxFor(model => model.Wednesday) @Html.LabelFor(t => t.Wednesday)</li>
