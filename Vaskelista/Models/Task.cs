@@ -12,6 +12,7 @@ namespace Vaskelista.Models
 
         [Required]
         public virtual Household Household { get; set; }
+        public Int32 HouseholdId { get; set; }
 
         [Required]
         [Display(Name = "Oppgavenavn")]

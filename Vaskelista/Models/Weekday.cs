@@ -17,4 +17,18 @@ namespace Vaskelista.Models
         Saturday = 32,
         Sunday = 64
     }
+
+    public static class WeekdayHelpers {
+        public static Weekday FromBooleans(bool mon, bool tue, bool wed, bool thu, bool fri, bool sat, bool sun)
+        {
+            return
+                (mon ? Weekday.Monday    : 0) |
+                (tue ? Weekday.Tuesday   : 0) |
+                (wed ? Weekday.Wednesday : 0) |
+                (thu ? Weekday.Thursday  : 0) |
+                (fri ? Weekday.Friday    : 0) |
+                (sat ? Weekday.Saturday  : 0) |
+                (sun ? Weekday.Sunday    : 0);
+        }
+    }
 }

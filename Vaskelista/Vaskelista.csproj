@@ -219,6 +219,10 @@
     <Compile Include="Migrations\201409051023556_TaskRoomRelation.Designer.cs">
       <DependentUpon>201409051023556_TaskRoomRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409081134234_AddTaskHouseholdId.cs" />
+    <Compile Include="Migrations\201409081134234_AddTaskHouseholdId.Designer.cs">
+      <DependentUpon>201409081134234_AddTaskHouseholdId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RandomUrl.cs" />
     <Compile Include="Models\Household.cs" />
@@ -230,6 +234,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\HouseholdService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\TaskCreateViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -385,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409051023556_TaskRoomRelation.resx">
       <DependentUpon>201409051023556_TaskRoomRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409081134234_AddTaskHouseholdId.resx">
+      <DependentUpon>201409081134234_AddTaskHouseholdId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

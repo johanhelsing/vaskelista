@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Vaskelista.Models;
+using Vaskelista.ViewModels;
 
 namespace Vaskelista.Controllers
 {
@@ -51,19 +52,25 @@ namespace Vaskelista.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="TaskId,Name,Description,Start,Days")] Task task)
+        public ActionResult Create([Bind(Include="TaskId,Name,Description,Start,RoomId,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday")] TaskCreateViewModel vm)
         {
-            task.Household = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
-            ModelState.Clear();
-            TryUpdateModel(task);
             if (ModelState.IsValid)
             {
+                var task = new Task
+                {
+                    Description = vm.Description,
+                    Name = vm.Name,
+                    RoomId = vm.RoomId,
+                    Start = vm.Start,
+                    Days = WeekdayHelpers.FromBooleans(vm.Monday, vm.Tuesday, vm.Wednesday, vm.Thursday, vm.Friday, vm.Saturday, vm.Sunday)
+                };
+                task.Household = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
                 db.Tasks.Add(task);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(task);
+            return View(vm);
         }
 
         // GET: /Task/Edit/5

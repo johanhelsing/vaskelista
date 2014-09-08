@@ -1,4 +1,4 @@
-﻿@model Vaskelista.Models.Task
+﻿@model Vaskelista.ViewModels.TaskCreateViewModel
 
 @{
     ViewBag.Title = "Ny oppgave";
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Room, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RoomId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.RoomId, (SelectList)ViewBag.RoomList, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.RoomId)
@@ -46,10 +46,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Days, new { @class = "control-label col-md-2" })
+            @Html.Label("Dager", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Days, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Days)
+                <ul>
+                    <li>@Html.CheckBoxFor(model => model.Monday) @Html.LabelFor(t => t.Monday)</li>
+                    <li>@Html.CheckBoxFor(model => model.Tuesday) @Html.LabelFor(t => t.Tuesday)</li>
+                    <li>@Html.CheckBoxFor(model => model.Wednesday) @Html.LabelFor(t => t.Wednesday)</li>
+                    <li>@Html.CheckBoxFor(model => model.Thursday) @Html.LabelFor(t => t.Thursday)</li>
+                    <li>@Html.CheckBoxFor(model => model.Friday) @Html.LabelFor(t => t.Friday)</li>
+                    <li>@Html.CheckBoxFor(model => model.Saturday) @Html.LabelFor(t => t.Saturday)</li>
+                    <li>@Html.CheckBoxFor(model => model.Sunday) @Html.LabelFor(t => t.Sunday)</li>
+</ul>
             </div>
         </div>
 
