@@ -20,6 +20,7 @@ namespace Vaskelista.Models
         [Display(Name = "Beskrivelse")]
         public string Description { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime Start { get; set; }
 
         [Required]

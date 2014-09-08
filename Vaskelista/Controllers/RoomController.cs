@@ -83,6 +83,12 @@ namespace Vaskelista.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="RoomId,Name")] Room room)
         {
+            var household = db.Households.FirstOrDefault(h => h.Token == HouseholdToken);
+            if (household == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            room.HouseholdId = household.HouseholdId;
             if (ModelState.IsValid)
             {
                 db.Entry(room).State = EntityState.Modified;
