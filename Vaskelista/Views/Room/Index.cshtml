@@ -7,7 +7,8 @@
 <h2>Romoversikt</h2>
 
 <p>
-    @Html.ActionLink("Legg til nytt rom", "Create") @Html.ActionLink("Planlagte oppgaver", "Index", "Task")
+    <a href="@Url.Action("Index", "Task")" class="btn btn-default"><i class="fa fa-list"></i> Planlagte oppgaver</a>
+    <a href="@Url.Action("Create")" class="btn btn-default"><i class="fa fa-plus"></i> Nytt rom</a>
 </p>
 <table class="table">
     <tr>
@@ -19,12 +20,12 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td class="vert-align">
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>
-            @Html.ActionLink("Rediger", "Edit", new { id=item.RoomId }) |
-            @Html.ActionLink("Detaljer", "Details", new { id=item.RoomId })
+        <td class="vert-align">
+            <a href="@Url.Action("Edit")" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Endre</a>
+            <a href="@Url.Action("Details")" class="btn btn-default btn-sm"><i class="fa fa-info"></i> Detaljer</a>
         </td>
     </tr>
 }
