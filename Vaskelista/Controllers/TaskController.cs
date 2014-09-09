@@ -89,7 +89,8 @@ namespace Vaskelista.Controllers
             {
                 return HttpNotFound();
             }
-            return View(task);
+            ViewBag.RoomList = new SelectList(db.Rooms.Where(r => r.Household.Token == HouseholdToken).ToList(), "RoomId", "Name");
+            return View(new TaskCreateViewModel(task));
         }
 
         // POST: /Task/Edit/5

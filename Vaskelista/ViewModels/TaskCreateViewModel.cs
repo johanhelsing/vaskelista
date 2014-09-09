@@ -23,7 +23,7 @@ namespace Vaskelista.ViewModels
 
         [Required]
         [Display(Name = "Rom")]
-        public Int32 RoomId { get; set; }
+        public Int32? RoomId { get; set; }
 
         [Display(Name = "Mandag")]
         public bool Monday { get; set; }
@@ -45,5 +45,22 @@ namespace Vaskelista.ViewModels
 
         [Display(Name = "Søndag")]
         public bool Sunday { get; set; }
+
+        public TaskCreateViewModel(Models.Task t)
+        {
+            Name         = t.Name;
+            Description  = t.Description;
+            Start        = t.Start;
+            RoomId       = t.RoomId;
+            Monday       = t.Days.HasFlag(Models.Weekday.Monday);
+            Tuesday      = t.Days.HasFlag(Models.Weekday.Tuesday);
+            Wednesday    = t.Days.HasFlag(Models.Weekday.Wednesday);
+            Thursday     = t.Days.HasFlag(Models.Weekday.Thursday);
+            Friday       = t.Days.HasFlag(Models.Weekday.Friday);
+            Saturday     = t.Days.HasFlag(Models.Weekday.Saturday);
+            Sunday       = t.Days.HasFlag(Models.Weekday.Sunday);
+        }
+
+        public TaskCreateViewModel() { }
     }
 }
