@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -90,7 +92,7 @@ namespace Vaskelista.Controllers
                 return HttpNotFound();
             }
             ViewBag.RoomList = new SelectList(db.Rooms.Where(r => r.Household.Token == HouseholdToken).ToList(), "RoomId", "Name");
-            return View(new TaskCreateViewModel(task));
+            return View(new TaskEditViewModel(task));
         }
 
         // POST: /Task/Edit/5
@@ -98,15 +100,23 @@ namespace Vaskelista.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="TaskId,Name,Description,Start,Days")] Task task)
+        public ActionResult Edit([Bind(Include = "TaskId,Name,Description,Start,RoomId,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday")] TaskEditViewModel vm)
         {
             if (ModelState.IsValid)
             {
+                Task task = db.Tasks.FirstOrDefault(t => t.TaskId == vm.TaskId && t.Household.Token == HouseholdToken);
+                if (task == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                vm.ApplyChanges(task);
+                
+                
                 db.Entry(task).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(task);
+            return View(vm);
         }
 
         // GET: /Task/Delete/5

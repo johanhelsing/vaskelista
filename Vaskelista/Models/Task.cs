@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,7 +11,6 @@ namespace Vaskelista.Models
     {
         public Int32 TaskId { get; set; }
 
-        [Required]
         public virtual Household Household { get; set; }
         public Int32 HouseholdId { get; set; }
 
