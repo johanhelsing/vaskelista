@@ -252,6 +252,7 @@
     <Compile Include="Services\HouseholdService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\TaskCreateViewModel.cs" />
+    <Compile Include="ViewModels\TaskEditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
