@@ -24,8 +24,8 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td class="vert-align">
-            <a href="@Url.Action("Edit")" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Endre</a>
-            <a href="@Url.Action("Details")" class="btn btn-default btn-sm"><i class="fa fa-info"></i> Detaljer</a>
+            <a href="@Url.Action("Edit", new { id = item.RoomId })" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Endre</a>
+            <a href="@Url.Action("Details", new { id = item.RoomId })" class="btn btn-default btn-sm"><i class="fa fa-info"></i> Detaljer</a>
         </td>
     </tr>
 }
