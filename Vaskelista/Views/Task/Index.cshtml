@@ -10,7 +10,7 @@
     <a href="@Url.Action("Index", "Room")" class="btn btn-default"><i class="fa fa-list"></i> Rom</a>
     <a href="@Url.Action("Create")" class ="btn btn-default"><i class="fa fa-plus"></i> Ny oppgave</a>
 </p>
-<table class="table">
+<table class="table task-table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -26,16 +26,16 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        <td class="vert-align">
             @Html.DisplayFor(modelItem => item.Name)
         </td>
-        <td>
+        <td class="vert-align">
             @Html.DisplayFor(modelItem => item.Room.Name)
         </td>
-        <td>
+        <td class="vert-align">
             @Html.DisplayFor(modelItem => item.Days)
         </td>
-        <td>
+        <td class="vert-align">
             <a href="@Url.Action("Edit", new { id = item.TaskId })" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
         </td>
     </tr>
