@@ -17,6 +17,6 @@ namespace Vaskelista.Models
         public virtual Household Household { get; set; }
         public Int32 HouseholdId { get; set; }
 
-        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<Activity> Tasks { get; set; }
     }
 }

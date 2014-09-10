@@ -123,7 +123,7 @@ namespace Vaskelista.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            db.Tasks.RemoveRange(db.Tasks.Where(t => t.RoomId == id));
+            db.Activities.RemoveRange(db.Activities.Where(a => a.RoomId == id));
             db.Rooms.Remove(room);
             db.SaveChanges();
             return RedirectToAction("Index");

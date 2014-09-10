@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Vaskelista.Models.Task>
+﻿@model IEnumerable<Vaskelista.ViewModels.TaskIndexViewModel>
 
 @{
     ViewBag.Title = "Oppgaveoversikt";
@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Room)
+            @Html.DisplayNameFor(model => model.RoomName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Days)
@@ -30,13 +30,13 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td class="vert-align">
-            @Html.DisplayFor(modelItem => item.Room.Name)
+            @Html.DisplayFor(modelItem => item.RoomName)
         </td>
         <td class="vert-align">
             @Html.DisplayFor(modelItem => item.Days)
         </td>
         <td class="vert-align">
-            <a href="@Url.Action("Edit", new { id = item.TaskId })" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
+            <a href="@Url.Action("Edit", new { id = item.ActivityId })" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
         </td>
     </tr>
 }

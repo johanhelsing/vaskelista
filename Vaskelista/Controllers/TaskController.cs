@@ -20,7 +20,8 @@ namespace Vaskelista.Controllers
         // GET: /Task/
         public ActionResult Index()
         {
-            return View(db.Tasks.Where(s=>s.Household.Token == HouseholdToken).ToList());
+            var activities = db.Activities.Where(s=>s.Household.Token == HouseholdToken).ToList();
+            return View(activities.Select(a => new TaskIndexViewModel(a)).ToList());
         }
 
         // GET: /Task/Details/5
@@ -30,7 +31,7 @@ namespace Vaskelista.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Task task = db.Tasks.Find(id);
+            Activity task = db.Activities.Find(id);
             if (task == null)
             {
                 return HttpNotFound();
@@ -58,16 +59,19 @@ namespace Vaskelista.Controllers
         {
             if (ModelState.IsValid)
             {
-                var task = new Task
+                var task = new Activity
                 {
                     Description = vm.Description,
                     Name = vm.Name,
                     RoomId = vm.RoomId,
-                    Start = vm.Start,
-                    Days = WeekdayHelpers.FromBooleans(vm.Monday, vm.Tuesday, vm.Wednesday, vm.Thursday, vm.Friday, vm.Saturday, vm.Sunday)
+                    ScheduleElement = new ScheduleElement
+                    {
+                        Start = vm.Start,
+                        Days = WeekdayHelpers.FromBooleans(vm.Monday, vm.Tuesday, vm.Wednesday, vm.Thursday, vm.Friday, vm.Saturday, vm.Sunday)
+                    }
                 };
                 task.Household = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
-                db.Tasks.Add(task);
+                db.Activities.Add(task);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -82,7 +86,7 @@ namespace Vaskelista.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Task task = db.Tasks.Find(id);
+            Activity task = db.Activities.Find(id);
             if (task == null)
             {
                 return HttpNotFound();
@@ -104,7 +108,7 @@ namespace Vaskelista.Controllers
         {
             if (ModelState.IsValid)
             {
-                Task task = db.Tasks.FirstOrDefault(t => t.TaskId == vm.TaskId && t.Household.Token == HouseholdToken);
+                Activity task = db.Activities.FirstOrDefault(t => t.ActivityId == vm.ActivityId && t.Household.Token == HouseholdToken);
                 if (task == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -126,7 +130,7 @@ namespace Vaskelista.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Task task = db.Tasks.Find(id);
+            Activity task = db.Activities.Find(id);
             if (task == null)
             {
                 return HttpNotFound();
@@ -139,8 +143,8 @@ namespace Vaskelista.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Task task = db.Tasks.Find(id);
-            db.Tasks.Remove(task);
+            Activity task = db.Activities.Find(id);
+            db.Activities.Remove(task);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

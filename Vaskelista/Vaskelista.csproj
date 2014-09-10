@@ -240,12 +240,17 @@
     <Compile Include="Migrations\201409081134234_AddTaskHouseholdId.Designer.cs">
       <DependentUpon>201409081134234_AddTaskHouseholdId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409101036364_RefactorToScheduleElementAndActivity.cs" />
+    <Compile Include="Migrations\201409101036364_RefactorToScheduleElementAndActivity.Designer.cs">
+      <DependentUpon>201409101036364_RefactorToScheduleElementAndActivity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\RandomUrl.cs" />
     <Compile Include="Models\Household.cs" />
     <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\ScheduleItem.cs" />
     <Compile Include="Models\StringExtensions.cs" />
-    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\VaskelistaContext.cs" />
     <Compile Include="Models\Weekday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -253,6 +258,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\TaskCreateViewModel.cs" />
     <Compile Include="ViewModels\TaskEditViewModel.cs" />
+    <Compile Include="ViewModels\TaskIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datepicker.css" />
@@ -772,6 +778,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409081134234_AddTaskHouseholdId.resx">
       <DependentUpon>201409081134234_AddTaskHouseholdId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409101036364_RefactorToScheduleElementAndActivity.resx">
+      <DependentUpon>201409101036364_RefactorToScheduleElementAndActivity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace Vaskelista.Models
 {
-    public class Task
+    public class Activity
     {
-        public Int32 TaskId { get; set; }
+        public Int32 ActivityId { get; set; }
 
         public virtual Household Household { get; set; }
         public Int32 HouseholdId { get; set; }
@@ -21,15 +20,11 @@ namespace Vaskelista.Models
         [Display(Name = "Beskrivelse")]
         public string Description { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime Start { get; set; }
-
-        [Required]
-        [Display(Name = "Dager")]
-        public Weekday Days { get; set; }
-
-        [Display(Name = "Rom")]
         public virtual Room Room { get; set; }
         public Int32? RoomId { get; set; }
+
+        public virtual ScheduleElement ScheduleElement {get; set;}
+        public Int32? ScheduleElementId { get; set; }
+
     }
 }
