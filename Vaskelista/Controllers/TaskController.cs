@@ -20,8 +20,13 @@ namespace Vaskelista.Controllers
         // GET: /Task/
         public ActionResult Index()
         {
-            var activities = db.Activities.Where(s=>s.Household.Token == HouseholdToken).ToList();
-            return View(activities.Select(a => new TaskIndexViewModel(a)).ToList());
+            var household = db.Households.Where(s=>s.Token == HouseholdToken).FirstOrDefault();
+            if (household == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var vm = household.ScheduleElements.Select(s => new TaskIndexViewModel(s)).ToList();
+            return View(vm);
         }
 
         // GET: /Task/Details/5
@@ -64,15 +69,23 @@ namespace Vaskelista.Controllers
                     Description = vm.Description,
                     Name = vm.Name,
                     RoomId = vm.RoomId,
-                    ScheduleElement = new ScheduleElement
-                    {
-                        Start = vm.Start,
-                        Days = WeekdayHelpers.FromBooleans(vm.Monday, vm.Tuesday, vm.Wednesday, vm.Thursday, vm.Friday, vm.Saturday, vm.Sunday)
-                    }
+                    
                 };
                 activity.Household = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
                 activity.Household.Activities.Add(activity);
                 db.Activities.Add(activity);
+
+                var scheduleElement = new ScheduleElement
+                {
+                    Start = vm.Start,
+                    Days = WeekdayHelpers.FromBooleans(vm.Monday, vm.Tuesday, vm.Wednesday, vm.Thursday, vm.Friday, vm.Saturday, vm.Sunday),
+                    Activity = activity
+                };
+                db.ScheduleElements.Add(scheduleElement);
+
+                activity.Household.ScheduleElements.Add(scheduleElement);
+                db.Entry(activity.Household).State = EntityState.Modified;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -87,17 +100,17 @@ namespace Vaskelista.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Activity task = db.Activities.Find(id);
-            if (task == null)
+            ScheduleElement scheduleElement = db.ScheduleElements.Find(id);
+            if (scheduleElement == null)
             {
                 return HttpNotFound();
             }
-            if (task.Household.Token != HouseholdToken)
+            if (scheduleElement.Activity.Household.Token != HouseholdToken)
             {
                 return HttpNotFound();
             }
             ViewBag.RoomList = new SelectList(db.Rooms.Where(r => r.Household.Token == HouseholdToken).ToList(), "RoomId", "Name");
-            return View(new TaskEditViewModel(task));
+            return View(new TaskEditViewModel(scheduleElement));
         }
 
         // POST: /Task/Edit/5
@@ -109,15 +122,15 @@ namespace Vaskelista.Controllers
         {
             if (ModelState.IsValid)
             {
-                Activity task = db.Activities.FirstOrDefault(t => t.ActivityId == vm.ActivityId && t.Household.Token == HouseholdToken);
-                if (task == null)
+                ScheduleElement scheduleElement = db.ScheduleElements.FirstOrDefault(t => t.ScheduleElementId == vm.ScheduleElementId && t.Activity.Household.Token == HouseholdToken);
+                if (scheduleElement == null)
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                vm.ApplyChanges(task);
+                vm.ApplyChanges(scheduleElement);
                 
                 
-                db.Entry(task).State = EntityState.Modified;
+                db.Entry(scheduleElement).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

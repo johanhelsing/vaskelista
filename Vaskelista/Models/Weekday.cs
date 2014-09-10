@@ -30,5 +30,32 @@ namespace Vaskelista.Models
                 (sat ? Weekday.Saturday  : 0) |
                 (sun ? Weekday.Sunday    : 0);
         }
+        public static List<DayOfWeek> ToDayOfWeekList(this Weekday weekday)
+        {
+            var days = new List<DayOfWeek>();
+            if (weekday.HasFlag(Weekday.Monday)) days.Add(DayOfWeek.Monday);
+            if (weekday.HasFlag(Weekday.Tuesday)) days.Add(DayOfWeek.Tuesday);
+            if (weekday.HasFlag(Weekday.Wednesday)) days.Add(DayOfWeek.Wednesday);
+            if (weekday.HasFlag(Weekday.Thursday)) days.Add(DayOfWeek.Thursday);
+            if (weekday.HasFlag(Weekday.Friday)) days.Add(DayOfWeek.Friday);
+            if (weekday.HasFlag(Weekday.Saturday)) days.Add(DayOfWeek.Saturday);
+            if (weekday.HasFlag(Weekday.Sunday)) days.Add(DayOfWeek.Sunday);
+            return days;
+        }
+        public static Weekday ToWeekday(this DayOfWeek d)
+        {
+            switch (d)
+            {
+                case DayOfWeek.Monday: return Weekday.Monday;
+                case DayOfWeek.Tuesday: return Weekday.Tuesday;
+                case DayOfWeek.Wednesday: return Weekday.Wednesday;
+                case DayOfWeek.Thursday: return Weekday.Thursday;
+                case DayOfWeek.Friday: return Weekday.Friday;
+                case DayOfWeek.Saturday: return Weekday.Saturday;
+                case DayOfWeek.Sunday: return Weekday.Sunday;
+                default: return Weekday.NoDay;
+            }
+        }
+
     }
 }

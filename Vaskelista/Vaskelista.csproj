@@ -244,13 +244,23 @@
     <Compile Include="Migrations\201409101036364_RefactorToScheduleElementAndActivity.Designer.cs">
       <DependentUpon>201409101036364_RefactorToScheduleElementAndActivity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409101358239_RemoveCircularReference.cs" />
+    <Compile Include="Migrations\201409101358239_RemoveCircularReference.Designer.cs">
+      <DependentUpon>201409101358239_RemoveCircularReference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409101409018_CreateScheduleElementHousehold.cs" />
+    <Compile Include="Migrations\201409101409018_CreateScheduleElementHousehold.Designer.cs">
+      <DependentUpon>201409101409018_CreateScheduleElementHousehold.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DateTimeExtensions.cs" />
     <Compile Include="Models\RandomUrl.cs" />
     <Compile Include="Models\Household.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\ScheduleItem.cs" />
     <Compile Include="Models\StringExtensions.cs" />
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Models\VaskelistaContext.cs" />
     <Compile Include="Models\Weekday.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -781,6 +791,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409101036364_RefactorToScheduleElementAndActivity.resx">
       <DependentUpon>201409101036364_RefactorToScheduleElementAndActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409101358239_RemoveCircularReference.resx">
+      <DependentUpon>201409101358239_RemoveCircularReference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409101409018_CreateScheduleElementHousehold.resx">
+      <DependentUpon>201409101409018_CreateScheduleElementHousehold.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

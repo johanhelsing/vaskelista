@@ -15,6 +15,8 @@ namespace Vaskelista.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ScheduleElement>().HasRequired(s => s.Activity).WithOptional();
+            modelBuilder.Entity<Household>().HasMany(s => s.ScheduleElements).WithRequired();
         }
     }
 }

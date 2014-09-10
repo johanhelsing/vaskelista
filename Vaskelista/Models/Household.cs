@@ -16,5 +16,16 @@ namespace Vaskelista.Models
 
         public virtual ICollection<Room> Rooms { get; set; }
         public virtual ICollection<Activity> Activities { get; set; }
+        public virtual ICollection<ScheduleElement> ScheduleElements { get; set; }
+
+        public ICollection<Task> GetPlannedTasksForWeek(DateTime week)
+        {
+            var tasks = new List<Task>();
+            foreach (var scheduleElement in ScheduleElements)
+            {
+                tasks.AddRange(scheduleElement.CreateTasksForWeek(week));
+            }
+            return tasks;
+        }
     }
 }

@@ -22,9 +22,5 @@ namespace Vaskelista.Models
 
         public virtual Room Room { get; set; }
         public Int32? RoomId { get; set; }
-
-        public virtual ScheduleElement ScheduleElement {get; set;}
-        public Int32? ScheduleElementId { get; set; }
-
     }
 }

@@ -9,22 +9,22 @@ namespace Vaskelista.ViewModels
 {
     public class TaskIndexViewModel
     {
-        private Activity Activity { get; set; }
+        private ScheduleElement ScheduleElement { get; set; }
 
-        public Int32 ActivityId { get { return Activity.ActivityId; }}
+        public Int32 ScheduleElementId { get { return ScheduleElement.ScheduleElementId; }}
 
         [Display(Name = "Rom")]
-        public string RoomName { get { return Activity.Room.Name; }}
+        public string RoomName { get { return ScheduleElement.Activity.Room.Name; }}
 
         [Display(Name = "Dager")]
-        public string Days { get { return Activity.ScheduleElement.Days.ToString(); } }
+        public string Days { get { return ScheduleElement.Days.ToString(); } }
 
         [Display(Name = "Oppgavenavn")]
-        public string Name { get { return Activity.Name;  } }
+        public string Name { get { return ScheduleElement.Activity.Name;  } }
 
         public TaskIndexViewModel() { }
-        public TaskIndexViewModel(Activity a) {
-            Activity = a;
+        public TaskIndexViewModel(ScheduleElement s) {
+            ScheduleElement = s;
         }
 
     }

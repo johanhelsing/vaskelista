@@ -10,30 +10,30 @@ namespace Vaskelista.ViewModels
     public class TaskEditViewModel : TaskCreateViewModel
     {
         public TaskEditViewModel() { }
-        public TaskEditViewModel(Activity t) {
-            ActivityId = t.ActivityId;
-            Name = t.Name;
-            Description = t.Description;
-            Start = t.ScheduleElement.Start;
-            RoomId = t.RoomId;
-            Monday = t.ScheduleElement.Days.HasFlag(Models.Weekday.Monday);
-            Tuesday = t.ScheduleElement.Days.HasFlag(Models.Weekday.Tuesday);
-            Wednesday = t.ScheduleElement.Days.HasFlag(Models.Weekday.Wednesday);
-            Thursday = t.ScheduleElement.Days.HasFlag(Models.Weekday.Thursday);
-            Friday = t.ScheduleElement.Days.HasFlag(Models.Weekday.Friday);
-            Saturday = t.ScheduleElement.Days.HasFlag(Models.Weekday.Saturday);
-            Sunday = t.ScheduleElement.Days.HasFlag(Models.Weekday.Sunday);
+        public TaskEditViewModel(ScheduleElement s) {
+            ScheduleElementId = s.ScheduleElementId;
+            Name = s.Activity.Name;
+            Description = s.Activity.Description;
+            RoomId = s.Activity.RoomId;
+            Start = s.Start;
+            Monday = s.Days.HasFlag(Models.Weekday.Monday);
+            Tuesday = s.Days.HasFlag(Models.Weekday.Tuesday);
+            Wednesday = s.Days.HasFlag(Models.Weekday.Wednesday);
+            Thursday = s.Days.HasFlag(Models.Weekday.Thursday);
+            Friday = s.Days.HasFlag(Models.Weekday.Friday);
+            Saturday = s.Days.HasFlag(Models.Weekday.Saturday);
+            Sunday = s.Days.HasFlag(Models.Weekday.Sunday);
         }
 
         [Required]
-        public Int32 ActivityId { get; set; }
+        public Int32 ScheduleElementId { get; set; }
 
-        public void ApplyChanges(Activity task)
+        public void ApplyChanges(ScheduleElement scheduleElement)
         {
-            task.Name = Name;
-            task.ScheduleElement.Start = Start;
-            task.RoomId = RoomId;
-            task.ScheduleElement.Days = WeekdayHelpers.FromBooleans(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday);
+            scheduleElement.Activity.Name = Name;
+            scheduleElement.Start = Start;
+            scheduleElement.Activity.RoomId = RoomId;
+            scheduleElement.Days = WeekdayHelpers.FromBooleans(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday);
         }
     }
 }

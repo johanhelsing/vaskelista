@@ -13,7 +13,7 @@
     
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
-        @Html.HiddenFor(model => model.TaskId)
+        @Html.HiddenFor(model => model.ScheduleElementId)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
