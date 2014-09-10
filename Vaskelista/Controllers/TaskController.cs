@@ -59,7 +59,7 @@ namespace Vaskelista.Controllers
         {
             if (ModelState.IsValid)
             {
-                var task = new Activity
+                var activity = new Activity
                 {
                     Description = vm.Description,
                     Name = vm.Name,
@@ -70,8 +70,9 @@ namespace Vaskelista.Controllers
                         Days = WeekdayHelpers.FromBooleans(vm.Monday, vm.Tuesday, vm.Wednesday, vm.Thursday, vm.Friday, vm.Saturday, vm.Sunday)
                     }
                 };
-                task.Household = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
-                db.Activities.Add(task);
+                activity.Household = db.Households.FirstOrDefault(s => s.Token == HouseholdToken);
+                activity.Household.Activities.Add(activity);
+                db.Activities.Add(activity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -15,7 +15,6 @@ namespace Vaskelista.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
         }
     }
 }
