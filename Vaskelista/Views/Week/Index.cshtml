@@ -19,10 +19,29 @@
 </head>
 <body>
     <main class="main container body-content">
+        <h2>Min uke</h2>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Oppgave</th>
+                    <th>Rom</th>
+                    <th>Dag</th>
+                </tr>
+            </thead>
+            <tbody data-bind ="foreach: tasks">
+                <tr>
+                    <td><span data-bind="text: name"></span></td>
+                    <td><span data-bind="text: room"></span></td>
+                    <td><span data-bind="text: day"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
     </main>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/knockback")
+    @Scripts.Render("~/bundles/app")
 </body>
 </html>

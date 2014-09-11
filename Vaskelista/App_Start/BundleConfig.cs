@@ -39,6 +39,9 @@ namespace Vaskelista
                     "~/Scripts/knockback-full-stack.js"
                 ));
 
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+                "~/Scripts/app/app.js"));
+
             bundles.Add(new LessBundle("~/Content/less").Include("~/Content/*.less"));
 
         }
