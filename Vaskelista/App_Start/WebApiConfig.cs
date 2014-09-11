@@ -15,8 +15,8 @@ namespace Vaskelista
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                name: "HouseholdWithTokenApi",
+                routeTemplate: "api/{householdToken}/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

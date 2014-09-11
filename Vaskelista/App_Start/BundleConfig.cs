@@ -35,6 +35,10 @@ namespace Vaskelista
                         "~/Scripts/bootstrap-datepicker.js",
                         "~/Scripts/locales/bootstrap-datepicker.no.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/knockback").Include(
+                    "~/Scripts/knockback-full-stack.js"
+                ));
+
             bundles.Add(new LessBundle("~/Content/less").Include("~/Content/*.less"));
 
         }
