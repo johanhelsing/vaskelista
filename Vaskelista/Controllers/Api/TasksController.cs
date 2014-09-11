@@ -33,7 +33,8 @@ namespace Vaskelista.Controllers.Api
             var household = db.Households.Where(h => h.Token == HouseholdToken).FirstOrDefault();
             return household.GetPlannedTasksForWeek(week).Select(t => new { 
                 name = t.Activity.Name, 
-                day = t.Start.DayOfWeek.ToString(), 
+                day = t.Start.DayOfWeek.ToString(),
+                start = t.Start,
                 room = t.Activity.Room.Name,
             });
         }

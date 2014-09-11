@@ -7,6 +7,7 @@
         urlRoot: taskurl
     });
 
+
     var TaskList = Backbone.Collection.extend({
         model: Task,
         url: taskurl
@@ -16,9 +17,16 @@
     tasksGlobal = tasks;
     $(function () {
         tasks.fetch({ data: { week: new Date().toISOString() } }).done(function () { });
+
+        var sort_attribute = ko.observable('start');
+
         var viewModel = {
-            tasks: kb.collectionObservable(tasks, { view_model: kb.ViewModel })
+            tasks: kb.collectionObservable(tasks, {
+                view_model: kb.ViewModel,
+                sort_attribute: sort_attribute
+            })
         };
+
         ko.applyBindings(viewModel, $('main')[0]);
     });
 
