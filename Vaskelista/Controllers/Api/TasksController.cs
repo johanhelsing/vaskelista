@@ -36,6 +36,7 @@ namespace Vaskelista.Controllers.Api
                 day = t.Start.DayOfWeek.ToString(),
                 start = t.Start,
                 room = t.Activity.Room.Name,
+                finished = t.Finished
             });
         }
     }

@@ -7,6 +7,12 @@
         urlRoot: taskurl
     });
 
+    var TaskViewModel = kb.ViewModel.extend({
+        constructor: function (model, options) {
+            this.expired = ko.computed(function () { return model.get('start')<new Date().toISOString(); }, this);
+            kb.ViewModel.prototype.constructor.apply(this, arguments);
+        }
+    });
 
     var TaskList = Backbone.Collection.extend({
         model: Task,
@@ -22,7 +28,7 @@
 
         var viewModel = {
             tasks: kb.collectionObservable(tasks, {
-                view_model: kb.ViewModel,
+                view_model: TaskViewModel,
                 sort_attribute: sort_attribute
             })
         };
