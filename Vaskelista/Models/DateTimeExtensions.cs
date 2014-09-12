@@ -17,5 +17,23 @@ namespace Vaskelista.Models
 
             return dt.AddDays(-1 * diff).Date;
         }
+
+        public static DateTime StartOfDay(this DateTime dateTime)
+        {
+            return new DateTime(
+               dateTime.Year,
+               dateTime.Month,
+               dateTime.Day,
+               0, 0, 0, 0);
+        }
+
+        public static DateTime EndOfDay(this DateTime dateTime)
+        {
+            return new DateTime(
+               dateTime.Year,
+               dateTime.Month,
+               dateTime.Day,
+               23, 59, 59, 999);
+        }
     }
 }

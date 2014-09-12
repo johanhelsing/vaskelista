@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -52,14 +53,27 @@ namespace Vaskelista.Controllers.Api
 
         public dynamic Post([FromBody] TasksApiViewModel vm)
         {
+            var startOfDay = vm.start.StartOfDay();
+            var endOfDay = vm.start.EndOfDay();
+            var existingTasks = db.Tasks.Where(t => t.ActivityId == vm.activityId
+                && t.Start >= startOfDay && t.Start <= endOfDay
+                && t.Activity.Household.Token == HouseholdToken).ToList();
+
+            foreach (var task in existingTasks)
+            {
+                db.Entry(task).State = System.Data.Entity.EntityState.Deleted;
+            }
+
             if (vm.finished)
             {
-                return "Add finished";
+                var t = db.Tasks.Add(new Task { 
+                    ActivityId = vm.activityId,
+                    Finished = vm.finished,
+                    Start = vm.start,
+                });
             }
-            else
-            {
-                return "Remove finished";
-            }
+            db.SaveChanges();
+            return "ok";
         }
     }
 }
