@@ -27,7 +27,8 @@ namespace Vaskelista.Models
             DateTime weekStart = week.StartOfWeek(DayOfWeek.Monday);
             for (var day = weekStart; (day - weekStart).Days < 7; day = day.AddDays(1))
             {
-                if (IncludesDay(day)) tasks.Add(new Task { 
+                if (IncludesDay(day)) tasks.Add(new Task {
+                    ActivityId = Activity.ActivityId,
                     Activity = Activity,
                     Start = day,
                     Finished = false

@@ -8,8 +8,11 @@ namespace Vaskelista.Models
 {
     public class Task
     {
+        public Int32 TaskId { get; set; }
+
         [Required]
         public virtual Activity Activity { get; set; }
+        public Int32 ActivityId { get; set; }
 
         public DateTime Start { get; set; }
 

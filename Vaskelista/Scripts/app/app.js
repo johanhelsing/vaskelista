@@ -3,6 +3,9 @@
     var token = window.location.pathname.split("/")[1];
     var taskurl = APIURL + encodeURIComponent(token) + '/tasks/';
 
+
+
+
     var Task = Backbone.Model.extend({
         urlRoot: taskurl
     });
@@ -11,6 +14,15 @@
         constructor: function (model, options) {
             this.expired = ko.computed(function () { return model.get('start')<new Date().toISOString(); }, this);
             kb.ViewModel.prototype.constructor.apply(this, arguments);
+        },
+        saveTask: function (task) {
+            $.ajax(taskurl, {
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data: ko.toJSON(task.model),
+                error: function (error) { console.error(error); }
+            });
+            return true;
         }
     });
 

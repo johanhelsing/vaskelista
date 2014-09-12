@@ -254,6 +254,10 @@
     <Compile Include="Migrations\201409101409018_CreateScheduleElementHousehold.Designer.cs">
       <DependentUpon>201409101409018_CreateScheduleElementHousehold.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201409121023484_AddFinishedTasks.cs" />
+    <Compile Include="Migrations\201409121023484_AddFinishedTasks.Designer.cs">
+      <DependentUpon>201409121023484_AddFinishedTasks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DateTimeExtensions.cs" />
     <Compile Include="Models\RandomUrl.cs" />
@@ -815,6 +819,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201409101409018_CreateScheduleElementHousehold.resx">
       <DependentUpon>201409101409018_CreateScheduleElementHousehold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409121023484_AddFinishedTasks.resx">
+      <DependentUpon>201409121023484_AddFinishedTasks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -12,6 +12,7 @@ namespace Vaskelista.Models
         public DbSet<Household> Households { get; set; }
         public DbSet<Activity> Activities { get; set; }
         public DbSet<ScheduleElement> ScheduleElements { get; set; }
+        public DbSet<Task> Tasks { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
