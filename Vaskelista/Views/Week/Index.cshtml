@@ -23,7 +23,7 @@
         <table class="table table-hover week-table">
             <thead>
                 <tr>
-                    <th></th>
+                    <th class="snug"></th>
                     <th>Oppgave</th>
                     <th>Rom</th>
                     <th>Dag</th>
@@ -31,7 +31,7 @@
             </thead>
             <tbody data-bind="foreach: tasks">
                 <tr data-bind="css: { strikeout: finished, success: finished, danger: !finished() && expired() }" >
-                    <td class="vert-align"><input type="checkbox" data-bind="checked: finished" /></td>
+                    <td class="vert-align snug"><input type="checkbox" data-bind="checked: finished" /></td>
                     <td class="vert-align"><span data-bind="text: name"></span></td>
                     <td class="vert-align"><span data-bind="text: room"></span></td>
                     <td class="vert-align"><span data-bind="text: day"></span></td>
