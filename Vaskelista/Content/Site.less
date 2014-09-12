@@ -1,7 +1,16 @@
-﻿@color-background: #ffffff;
+﻿.transition (@transition) {
+	-webkit-transition: @transition;  
+	-moz-transition:    @transition;
+	-ms-transition:     @transition; 
+	-o-transition:      @transition; 
+    transition:         @transition;
+}
+
+@color-background: #ffffff;
 @color-text: #000000;
 @font-family-regular: 'Schoolbell', cursive;
 @font-family-headers: 'Patrick Hand SC', cursive;
+@body-padding: 15px;
 
 body {
     @media (min-width: 700px) {
@@ -23,8 +32,8 @@ h2 {
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: @body-padding;
+    padding-right: @body-padding;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -62,7 +71,6 @@ input[type="checkbox"].input-validation-error {
 
 /* Remove bullets from option lists */
 .form-checkbox-list {
-
     list-style-type: none;
     padding-left: 0;
     margin-top: 0.5em;
@@ -117,7 +125,7 @@ input[type="checkbox"]:after {
 	top: -22px;
 	right: -12px;
     border: 0px;
-    transition: 0.25s;
+    .transition(0.25s);
 	font-size: 35px;
     opacity: 0;
     vertical-align: bottom;
@@ -130,14 +138,23 @@ input[type="checkbox"]:checked:after {
 input[type="checkbox"]:focus {
     outline: 0;
 }
-
-/* week-table */
-.week-table {
-    input[type="checkbox"] {
-        position: relative;
-        top: -0.25em;
+.my-week {
+    padding-left: 0;
+    padding-right: 0;
+    h2 {
+        padding-left: @body-padding;
     }
-    font-size: 1.25em;
+    /* week-table */
+    .week-table {
+        input[type="checkbox"] {
+            position: relative;
+            top: -0.25em;
+        }
+
+        font-size: 1.25em;
+        position: relative;
+        box-sizing: border-box;
+    }
 }
 
 
