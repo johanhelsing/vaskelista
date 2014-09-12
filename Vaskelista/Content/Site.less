@@ -69,12 +69,15 @@ input[type="checkbox"].input-validation-error {
 }
 
 .form-weekday-list {
-    li{
+    li {
         display: inline-block;
         padding-right: 0.5em;
     }
+    input[type="checkbox"] {
+        position: relative;
+        top: -6px;
+    }
 }
-
 
 /* task-index page */
 
@@ -83,3 +86,58 @@ input[type="checkbox"].input-validation-error {
 {
     vertical-align: middle;
 }
+
+table           { border-collapse:collapse } /* Ensure no space between cells   */
+tr.strikeout td { position:relative        } /* Setup a new coordinate system   */
+tr.strikeout td:before {                     /* Create a new element that       */
+  content: " ";                              /* …has no text content            */
+  position: absolute;                        /* …is absolutely positioned       */
+  left: -10px; top: 50%; right: -10px;            /* …with the top across the middle */
+  border-bottom: 0px solid #000;             /* …and with a border on the top   */
+}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	background-color: #ffffff;
+	border: 2px solid #000000;
+	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
+	padding: 7px;
+	border-radius: 2px;
+	display: inline-block;
+	position: relative;
+    vertical-align: bottom;
+}
+
+input[type="checkbox"]:after {
+    content: '\2713';
+    transition: 2s;
+    color: #000000;
+	font-size: 0px;
+	position: absolute;
+	top: -22px;
+	left: -1px;
+    border: 0px;
+    transition: 0.25s;
+	font-size: 35px;
+    opacity: 0;
+    vertical-align: bottom;
+}
+
+input[type="checkbox"]:checked:after {
+    opacity: 1;
+}
+
+input[type="checkbox"]:focus {
+    outline: 0;
+}
+
+/* week-table */
+.week-table {
+    input[type="checkbox"] {
+        position: relative;
+        top: -0.25em;
+    }
+    font-size: 1.25em;
+}
+
+
