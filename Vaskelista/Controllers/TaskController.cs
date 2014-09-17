@@ -118,7 +118,7 @@ namespace Vaskelista.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TaskId,Name,Description,Start,RoomId,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday")] TaskEditViewModel vm)
+        public ActionResult Edit([Bind(Include = "ScheduleElementId,TaskId,Name,Description,Start,RoomId,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday")] TaskEditViewModel vm)
         {
             if (ModelState.IsValid)
             {
