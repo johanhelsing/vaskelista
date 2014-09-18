@@ -298,6 +298,8 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\el-householdnamelist.less" />
+    <Content Include="Content\globals.less" />
     <None Include="Properties\PublishProfiles\vaskelista - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\vaskelista - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\vaskelista2 - FTP %282%29.pubxml" />
