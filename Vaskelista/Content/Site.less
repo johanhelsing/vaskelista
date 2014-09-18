@@ -72,8 +72,8 @@ input[type="checkbox"].input-validation-error {
 /* Remove bullets from option lists */
 .form-checkbox-list {
     list-style-type: none;
-    padding-left: 0;
     margin-top: 0.5em;
+    padding-left: 0;
 }
 
 .form-weekday-list {
@@ -95,39 +95,28 @@ input[type="checkbox"].input-validation-error {
     vertical-align: middle;
 }
 
-table           { border-collapse:collapse } /* Ensure no space between cells   */
-tr.strikeout td { position:relative        } /* Setup a new coordinate system   */
-tr.strikeout td:before {                     /* Create a new element that       */
-  content: " ";                              /* …has no text content            */
-  position: absolute;                        /* …is absolutely positioned       */
-  left: -10px; top: 50%; right: -10px;            /* …with the top across the middle */
-  border-bottom: 0px solid #000;             /* …and with a border on the top   */
-}
-
 input[type="checkbox"] {
-	-webkit-appearance: none;
 	background-color: #ffffff;
 	border: 2px solid #000000;
-	/*box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);*/
-	padding: 7px;
 	border-radius: 2px;
 	display: inline-block;
+	padding: 7px;
 	position: relative;
     vertical-align: bottom;
+	-webkit-appearance: none;
 }
 
 input[type="checkbox"]:after {
+    border: 0px;
     content: '\2713';
     color: #000000;
-	font-size: 0px;
-	position: absolute;
-	top: -22px;
-	right: -12px;
-    border: 0px;
-    .transition(0.25s);
 	font-size: 35px;
     opacity: 0;
+	position: absolute;
+	right: -12px;
     vertical-align: bottom;
+	top: -22px;
+    .transition(0.25s);
 }
 
 input[type="checkbox"]:checked:after {
