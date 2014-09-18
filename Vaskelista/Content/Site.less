@@ -68,11 +68,15 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
-
 /* Remove bullets from option lists */
 .form-checkbox-list {
     list-style-type: none;
     margin-top: 0.5em;
+    padding-left: 0;
+}
+
+.form-option-list {
+    list-style-type: none;
     padding-left: 0;
 }
 
@@ -96,7 +100,7 @@ input[type="checkbox"].input-validation-error {
 }
 
 input[type="checkbox"] {
-	background-color: #ffffff;
+    background-color: #ffffff;
 	border: 2px solid #000000;
 	border-radius: 2px;
 	display: inline-block;
@@ -104,9 +108,6 @@ input[type="checkbox"] {
 	position: relative;
     vertical-align: bottom;
 	-webkit-appearance: none;
-}
-
-input[type="checkbox"] {
     &:after {
         border: 0px;
         content: '\2713';
