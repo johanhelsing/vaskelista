@@ -30,8 +30,8 @@
                 </tr>
             </thead>
             <tbody data-bind="foreach: tasks">
-                <tr data-bind="css: { strikeout: finished, success: finished, danger: !finished() && expired() }" >
-                    <td class="vert-align snug"><input type="checkbox" data-bind="checked: finished, click: $data.saveTask" /></td>
+                <tr data-bind="click: $data.toggleTask, css: { strikeout: finished, success: finished, danger: !finished() && expired() }">
+                    <td class="vert-align snug"><input type="checkbox" data-bind="checked: finished, clickBubble: false, click: $data.saveTask" /></td>
                     <td class="vert-align"><span data-bind="text: name"></span></td>
                     <td class="vert-align"><span data-bind="text: room"></span></td>
                     <td class="vert-align"><span data-bind="text: day"></span></td>

@@ -4,8 +4,6 @@
     var taskurl = APIURL + encodeURIComponent(token) + '/tasks/';
 
 
-
-
     var Task = Backbone.Model.extend({
         urlRoot: taskurl
     });
@@ -23,6 +21,10 @@
                 error: function (error) { console.error(error); }
             });
             return true;
+        },
+        toggleTask: function (task) {
+            this.finished(!this.finished());
+            return this.saveTask(task);
         }
     });
 
