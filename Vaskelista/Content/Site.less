@@ -1,16 +1,5 @@
-﻿.transition (@transition) {
-	-webkit-transition: @transition;  
-	-moz-transition:    @transition;
-	-ms-transition:     @transition; 
-	-o-transition:      @transition; 
-    transition:         @transition;
-}
-
-@color-background: #ffffff;
-@color-text: #000000;
-@font-family-regular: 'Schoolbell', cursive;
-@font-family-headers: 'Patrick Hand SC', cursive;
-@body-padding: 15px;
+﻿@import "globals.less";
+@import "el-householdnamelist.less";
 
 body {
     @media (min-width: 700px) {
@@ -72,11 +61,6 @@ input[type="checkbox"].input-validation-error {
 .form-checkbox-list {
     list-style-type: none;
     margin-top: 0.5em;
-    padding-left: 0;
-}
-
-.form-option-list {
-    list-style-type: none;
     padding-left: 0;
 }
 
