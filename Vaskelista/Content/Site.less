@@ -106,33 +106,33 @@ input[type="checkbox"] {
 	-webkit-appearance: none;
 }
 
-input[type="checkbox"]:after {
-    border: 0px;
-    content: '\2713';
-    color: #000000;
-	font-size: 35px;
-    opacity: 0;
-	position: absolute;
-	right: -12px;
-    vertical-align: bottom;
-	top: -22px;
-    .transition(0.25s);
+input[type="checkbox"] {
+    &:after {
+        border: 0px;
+        content: '\2713';
+        color: #000000;
+	    font-size: 35px;
+        opacity: 0;
+	    position: absolute;
+	    right: -12px;
+        vertical-align: bottom;
+	    top: -22px;
+        .transition(0.25s);
+    }
+    &:checked:after {
+        opacity: 1;
+    }
+    &:focus {
+        outline: 0;
+    }
 }
 
-input[type="checkbox"]:checked:after {
-    opacity: 1;
-}
-
-input[type="checkbox"]:focus {
-    outline: 0;
-}
 .my-week {
     padding-left: 0;
     padding-right: 0;
     h2 {
         padding-left: @body-padding;
     }
-    /* week-table */
     .week-table {
         input[type="checkbox"] {
             position: relative;
